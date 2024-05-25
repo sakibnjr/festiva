@@ -1,0 +1,154 @@
+<?php
+session_start();
+
+include("db.php");
+
+$status = $statusMsg = ''; 
+if(isset($_POST["submit"])){ 
+
+  $ename = $_POST["ename"];
+  $sdate = $_POST["sdate"];
+  $edate = $_POST["edate"];
+  $efee = $_POST["efee"];
+
+    $status = 'error'; 
+    if(!empty($_FILES["image"]["name"])) { 
+       
+        $fileName = basename($_FILES["image"]["name"]); 
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+         
+        $allowTypes = array('jpg','png','jpeg','gif'); 
+        if(in_array($fileType, $allowTypes)){ 
+            $image = $_FILES['image']['tmp_name']; 
+            $imgContent = addslashes(file_get_contents($image)); 
+
+
+            $query = "INSERT into eventinfo (Image,EventName,EventStartDate,EventEndDate,Entry_Fee) VALUES ('$imgContent','$ename','$sdate','$edate','$efee')";
+         
+            $insert = mysqli_query($con, $query); 
+            if($insert){
+              $status = 'success'; 
+              $statusMsg = "New Event Added!"; }
+        else{
+            $statusMsg = "File upload failed, please try again."; } }
+    else{ 
+        $statusMsg ='Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; } }
+else{
+    $statusMsg = 'Please select an image file to upload.'; } } 
+// Display status
+echo $statusMsg; 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+    * {
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+    }
+    .primary-fieldset {
+      width: 600px;
+      margin: 20px auto;
+      border: 3px solid #38b6ff;
+      border-radius: 5px;
+    }
+
+    .secondary-fieldset {
+      width: 400px;
+      margin: 0px auto;
+      border: 3px solid #38b6ff;
+      border-radius: 5px;
+    }
+
+    .primary-legend,
+    .secondary-legend {
+      background-color: #38b6ff;
+      color: #fff;
+      font-size: 1.2em;
+      border: 2px solid;
+      padding: 3px 6px;
+      border-radius: 10px;
+    }
+    .new-event-form input {
+      font-size: 1em;
+      margin: 10px;
+      padding-left: 10px;
+      border: none;
+      border-bottom: 1px solid #38b6ff;
+      box-shadow: 0px 0px 8px -2px #38b6ff;
+      width: 360px;
+      height: 36px;
+      border-radius: 10px;
+    }
+    label.event-banner {
+      position: relative;
+      display: inline-block;
+      border-bottom: 2px solid #38b6ff;
+      letter-spacing: 2px;
+      left: -80px;
+      margin: 5px 0px;
+    }
+    input.add-event {
+      display: inline-block;
+      background-color: #38b6ff;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 1.2em;
+      width: 370px;
+      border-radius: 10px;
+      height: 40px;
+    }
+  </style>
+  <body>
+    <form
+      action="upload.php"
+      method="post"
+      enctype="multipart/form-data"
+      class="new-event-form"
+    >
+      <fieldset class="primary-fieldset">
+        <legend class="primary-legend">Create an Event</legend>
+        <label class="event-banner">Select Event Banner</label><br />
+        <input type="file" name="image" required />
+        <br />
+
+        <input
+          type="text"
+          name="ename"
+          placeholder="Event Name"
+          required
+        /><br />
+        <fieldset class="secondary-fieldset">
+          <legend class="secondary-legend">Event Duration</legend>
+          <input
+            type="date"
+            name="sdate"
+            placeholder="Start Date"
+            required
+          /><br />
+          <input
+            type="date"
+            name="edate"
+            placeholder="End Date"
+            required
+          /><br />
+        </fieldset>
+        <input type="text" name="efee" placeholder="Event Fee" required /><br />
+        <input
+          type="submit"
+          name="submit"
+          value="Add Event"
+          class="add-event"
+        /><br />
+      </fieldset>
+    </form>
+  </body>
+</html>

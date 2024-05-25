@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Lobster&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #f1f3f5;
+}
+#container {
+  max-width: 100%;
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* header-design */
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #dc3a43;
+  border-radius: 10px;
+  height: 105px;
+}
+header p {
+  font-size: 1.4em;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-family: lato;
+  color: #dc3a43;
+}
+.msg p {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+/* login-level-design */
+
+/* .blur {
+  filter: blur(7px);
+} */
+.flex {
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  margin: 5% auto;
+  gap: 20px;
+  padding-top: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.user-login {
+  background-color: #fff;
+  width: 280px;
+  height: 240px;
+  text-align: center;
+  margin-bottom: 90px;
+}
+.admin-login {
+  background-color: #fff;
+  width: 280px;
+  height: 240px;
+  text-align: center;
+  margin-bottom: 90px;
+}
+form,
+fieldset {
+  background-color: #fff;
+}
+
+fieldset.admin {
+  border: 3px solid #38b6ff;
+  border-radius: 10px;
+}
+
+fieldset.user {
+  border: 3px solid #00bf63;
+  border-radius: 10px;
+}
+
+legend {
+  padding: 5px;
+  font-size: 1.1em;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+legend.user {
+  color: #00bf63;
+  border: 3px solid #00bf63;
+}
+
+legend.admin {
+  color: #38b6ff;
+  border: 3px solid #38b6ff;
+}
+
+input {
+  padding: 5px 0px;
+  padding-left: 10px;
+  border-radius: 10px;
+  margin: 10px 0px;
+  background-color: #fff;
+}
+input[type="submit"] {
+  width: 180px;
+  height: 30px;
+  border-radius: 5px;
+  background: transparent;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  border: none;
+}
+input[type="submit"].user {
+  background-color: #00bf63;
+  color: #fff;
+}
+input[type="submit"].admin {
+  background-color: #38b6ff;
+  color: #fff;
+}
+
+/* Account-creation-section-design */
+
+.new-ac {
+  text-align: center;
+  background: transparent;
+}
+.new-ac-msg {
+  font-size: 0.9em;
+  margin: 5px 0px;
+  background: transparent;
+  position: relative;
+  top: -144px;
+}
+
+.new-ac a {
+  position: relative;
+  top: -130px;
+  text-decoration: none;
+  color: #dc3a43;
+  border: 3px solid #dc3a43;
+  background-color: #fff;
+  padding: 6px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(255, 0, 0, 0.3);
+}
+
+.new-ac a:hover {
+  color: #fff;
+  background-color: #dc3a43;
+}
+
+/* footer-section-design */
+
+footer {
+  background-color: #212529;
+  color: #fff;
+  padding: 20px;
+}
+footer p:first-child {
+  font-size: 1.6em;
+}
+footer p:last-child {
+  text-align: center;
+  font-size: 0.8em;
+}
+.social-icons {
+  display: grid;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+footer p,
+div.social-icons,
+img.social-icons {
+  background-color: #212529;
+}
+
+/* signup.html-design */
+
+.create-ac {
+  text-align: center;
+  width: 490px;
+  height: 490px;
+}
+
+label[for="form-info"] {
+  font-size: 2em;
+  background: transparent;
+  color: #dc3a43;
+}
+
+.signup-form input {
+  width: 400px;
+  height: 40px;
+  border: none;
+  margin-bottom: 14px;
+  box-shadow: 0px 2px 5px rgba(255, 0, 0, 0.3);
+}
+
+span.form-icon {
+  position: relative;
+  left: 390px;
+  top: 3px;
+  background-color: transparent;
+}
+
+ion-icon {
+  font-size: 18px;
+  background: transparent;
+  color: #dc3a43;
+}
+
+ion-icon.create {
+  color: #fff;
+}
+
+input.create-btn {
+  border: 3px solid #dc3a43;
+  background-color: #dc3a43;
+  width: 240px;
+  height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(255, 0, 0, 0.3);
+}
+
+input[type="checkbox"] {
+  height: 16px;
+  width: 16px;
+  margin-left: 40px;
+}
+label[for="checkbox"] {
+  font-size: 0.8em;
+  background: transparent;
+  position: relative;
+  bottom: 2px;
+}
+.terms {
+  color: #dc3a43;
+  background: transparent;
+}
+.lgn {
+  display: inline-block;
+  text-decoration: none;
+  width: 100px;
+  background-color: #fff;
+  color: #dc3a43;
+  text-transform: uppercase;
+}
